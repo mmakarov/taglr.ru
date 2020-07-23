@@ -1,0 +1,27 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page10666124.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Scheme} =http
+RewriteRule ^(.*)$ https://www\.taglr\.ru/$1 [R=301,L]
+
+RewriteCond %{HTTP:X-Scheme} =https
+RewriteCond %{HTTP_HOST} ^taglr.ru [NC]
+RewriteRule ^(.*)$ https://www\.taglr\.ru/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^indexhtml$ page10666124.html [NC]
+RewriteRule ^indexhtml/$ page10666124.html [NC]
+
+RewriteRule ^favicon.ico$ https://static.tildacdn.com/img/tildafavicon.ico [R=302,L]
+
+<IfModule mod_headers.c>
+	Header set X-Content-Type-Options nosniff
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
