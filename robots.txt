@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /
+Sitemap: https://www.taglr.ru/sitemap.xml
+Host: https://www.taglr.ru
